@@ -1,3 +1,5 @@
+package Spline_Drawing.src;
+
 import javax.swing.*;
 import java.awt.*;
 
