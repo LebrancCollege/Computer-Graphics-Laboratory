@@ -14,9 +14,10 @@ class App extends JPanel {
 
     public void paintComponent(Graphics g) {
         g.setColor(Color.BLACK);
-        ddaLine(g, 0, 0, 300,200);
+        bresenhamLine(g, 0, 0, 300,200);
     }
 
+    // Naive Line Drawing Algorithm. 
     public void naiveLine(Graphics g, int x1, int y1, int x2, int y2) {
         int dx = x2 - x1;
         int dy = y2 - y1;
@@ -27,6 +28,7 @@ class App extends JPanel {
         }
     }
 
+    // Digital Differential Analyzer Line Drawing Algorithm. 
     public void ddaLine(Graphics g, int x1, int y1, int x2, int y2) {
         double dx = x2 - x1;
         double dy = y2 - y1;
@@ -66,6 +68,25 @@ class App extends JPanel {
             }
         }
     }
+
+    // Bresenham Line Drawing Algorithm. 
+    public void bresenhamLine(Graphics g, int x1, int y1, int x2, int y2) {
+        int dx = x2 - x1;
+        int dy = y2 - y1;
+        int d = 2*dy - dx;
+        int y = y1;
+
+        for(int x = x1; x <= x2; x++) {
+            plot(g, x, y, 1);
+            
+            if(d >= 0) {
+                y++;
+                d = d - (2 * dx);
+            }
+
+            d = d + (2 * dy);
+        }
+    }   
 
     public void plot(Graphics g, int x, int y, int size) {
         g.fillRect(x, y, size, size);
