@@ -14,7 +14,7 @@ class App extends JPanel {
 
     public void paintComponent(Graphics g) {
         g.setColor(Color.BLACK);
-        bresenhamLine(g, 0, 0, 300,200);
+        bresenhamLine(g, 0, 0, 300, 200);
     }
 
     // Naive Line Drawing Algorithm. 
